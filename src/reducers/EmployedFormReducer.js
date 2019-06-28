@@ -3,10 +3,9 @@ import {EMPLOYED_UPDATE,EMPLOYED_CREATED,ON_LOGIN} from '../actions/types'
 const INITIAL_STATE= {
     name:'',
     surname:'',
-    phone:'',
+    legajo:'',
 }
 export default (state= INITIAL_STATE,action)=> {
-    console,console.log(action.type, action.payload);
     switch(action.type) {
         
         case EMPLOYED_UPDATE:

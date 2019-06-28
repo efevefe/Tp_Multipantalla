@@ -22,6 +22,7 @@ class App extends React.Component{
     firebase.initializeApp(firebaseConfig);
   }
   render(){
+    console.disableYellowBox = true;
     const store = createStore(reducers, {},applyMiddleware(ReduxThunk))
   return (
     <Provider store={store}>

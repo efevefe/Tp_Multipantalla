@@ -6,10 +6,27 @@ import {connect} from 'react-redux'
 import {employedUpdate,employedCreate} from '../actions'
 
 class EmployedCreate extends React.Component{
-
+    state={error:''}
     onButonPress(){
-        const {name ,surname,phone} = this.props
-        this.props.employedCreate({name ,surname,phone})
+        const {name ,surname,legajo} = this.props
+        console.log(this.state.error)
+        this.renderError()
+        if(this.state.error){
+            console.log(this.state.error)
+            return(<View>
+                <Text>{this.state.error}</Text>
+            </View>)
+        }
+        else{
+        this.props.employedCreate({name ,surname,legajo})
+        }
+    }
+    renderError(){
+        if(this.props.legajo ==='' || this.props.name ==='' ||this.props.surname ===''){
+            this.setState({error:'Todos los campos son OBLIGATORIOS'})
+            return false
+        }
+        return true
     }
 
     render(){
@@ -31,10 +48,12 @@ class EmployedCreate extends React.Component{
                 </CardSection>
                 <CardSection  style={{flex:0.5, justifyContent:"flex-start"}}>
                     <Input 
-                    label="Telefono"
-                    placeholder="351000000"
-                    value={this.props.phone}
-                    onChangeText={text => this.props.employedUpdate({prop:'phone',value: text})}/>
+                    keyboardType = 'numeric'
+                    label="Legajo"
+                    placeholder="3333"
+                    value={this.props.legajo}
+                    maxLength={10}
+                    onChangeText={text => this.props.employedUpdate({prop:'legajo',value: text})}/>
                 </CardSection>     
                 <CardSection  style={{flex:2, justifyContent:"flex-start"}}>
                     <Button title= "Crear Empleado" type = "solid" onPress={this.onButonPress.bind(this)}/>
@@ -44,7 +63,7 @@ class EmployedCreate extends React.Component{
     }
 }
 const mapStateToProps =(state) =>{
-    const {name,surname,phone} = state.employedForm
-    return{name,surname,phone}
+    const {name,surname,legajo} = state.employedForm
+    return{name,surname,legajo}
 }
 export default connect(mapStateToProps,{employedUpdate,employedCreate})(EmployedCreate)

@@ -4,14 +4,14 @@ import LoginForm from './components/LoginForm'
 import EmployedList from './components/EmployedList'
 import EmployedCreate from './components/EmployedCreate'
 
-
+ 
 const RouterComponent= () => {
     return(
         <Router>
             <Scene key= "root" hideNavBar>
-            <Scene key= "auth"> 
+             <Scene key= "auth"> 
                <Scene key="login" component={LoginForm} title="TP MULTIPANTALLA"/>
-           </Scene> 
+           </Scene>  
            <Scene key= "employed"> 
                <Scene 
                rightTitle ="Add"
