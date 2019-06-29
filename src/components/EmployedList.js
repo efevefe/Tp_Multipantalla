@@ -15,7 +15,7 @@ class EmployedList extends React.Component{
     }
     renderList() {
             return (
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1 ,backgroundColor :'#ffe9e1'}}>
                     <FlatList
                         data={this.props.employed}
                         renderItem={this.renderRow.bind(this)}

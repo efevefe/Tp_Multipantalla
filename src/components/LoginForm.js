@@ -41,7 +41,7 @@ class LoginForm extends React.Component{
     }
     render(){
         return(
-            <View style={{flex:1 , alignItems:"stretch" }}>
+            <View style={{flex:1 , alignItems:"stretch" ,backgroundColor :'#ffe9e1'}}>
                     <CardSection style={{flex:1 }}>
                         <Input label = "Email"
                         placeholder= "email@gmail.com"
