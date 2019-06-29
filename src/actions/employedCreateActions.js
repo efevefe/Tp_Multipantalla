@@ -13,9 +13,6 @@ export const employedUpdate = ({prop,value}) => {
 export const employedCreate = ({name,surname,legajo}) =>{
     const {currentUser} = firebase.auth();
     return(dispatch)=>{
-         dispatch({
-         type:ON_LOGIN
-         })
         firebase.database().ref(`/user/${currentUser.uid}/employees`)
         .push({name,surname,legajo})
         .then(()=>dispatch({
